@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tasklist)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(gh --version)"
+    ]
+  }
+}
