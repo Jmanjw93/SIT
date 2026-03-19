@@ -311,12 +311,12 @@
             <!-- Left Side Photos -->
             <section style="position: fixed; left: 20px; top: 120px; width: 350px; max-height: 70vh; overflow-y: auto; z-index: 50;">
                 <div style="margin-bottom: 20px; animation: slideUp 0.8s ease;">
-                    <img src="GG_menu.png" alt="SIT Wine Menu" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(-2deg)'; this.style.boxShadow='0 15px 50px rgba(200, 55, 171, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
+                    <img src="GG_menu.png" alt="SIT Wine Menu" onclick="openFoodMenu('wine')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(-2deg)'; this.style.boxShadow='0 15px 50px rgba(200, 55, 171, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                     <div onclick="openBookingForm()" style="position: absolute; width: 100%; height: 60px; bottom: 40px; left: 20px; cursor: pointer; z-index: 51;"></div>
                 </div>
 
                 <div style="margin-bottom: 20px; animation: slideUp 1s ease;">
-                    <img src="GG_purpmenu.png" alt="Purple Menu" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08) rotate(-3deg)'; this.style.boxShadow='0 15px 50px rgba(200, 55, 171, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
+                    <img src="GG_purpmenu.png" alt="Purple Menu" onclick="openFoodMenu('purple')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08) rotate(-3deg)'; this.style.boxShadow='0 15px 50px rgba(200, 55, 171, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                 </div>
 
                 <div style="animation: slideUp 1.1s ease;">
@@ -328,18 +328,32 @@
             <!-- Right Side Photos -->
             <section style="position: fixed; right: 20px; top: 120px; width: 350px; max-height: 70vh; overflow-y: auto; z-index: 50;">
                 <div style="margin-bottom: 20px; animation: slideUp 1.1s ease; position: relative;">
-                    <img src="Palace_Sit.png" alt="Palace at SIT" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(2deg)'; this.style.boxShadow='0 15px 50px rgba(255, 107, 107, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
+                    <img src="Palace_Sit.png" alt="Palace at SIT" onclick="openFoodMenu('coral')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(2deg)'; this.style.boxShadow='0 15px 50px rgba(255, 107, 107, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                     <button onclick="openBookingForm()" style="position: absolute; bottom: 45px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #ff6b6b, #ffd700); color: #333; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s ease; z-index: 51;" onmouseover="this.style.transform='translateX(-50%) scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(255, 107, 107, 0.5)';" onmouseout="this.style.transform='translateX(-50%) scale(1)'; this.style.boxShadow='none';">Book a Table</button>
                 </div>
 
                 <div style="margin-bottom: 20px; animation: slideUp 1.2s ease;">
-                    <img src="GraffitiGarden_scroll2.png" alt="Graffiti Garden" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 15px 50px rgba(0, 184, 148, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
+                    <img src="GraffitiGarden_scroll2.png" alt="Graffiti Garden" onclick="openFoodMenu('teal')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 15px 50px rgba(0, 184, 148, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                 </div>
 
                 <div style="animation: slideUp 1.3s ease;">
-                    <img src="GraffitiGarden_sit1.png" alt="SIT Gallery" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08) rotate(3deg)'; this.style.boxShadow='0 15px 50px rgba(255, 215, 0, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
+                    <img src="GraffitiGarden_sit1.png" alt="SIT Gallery" onclick="openFoodMenu('gold')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08) rotate(3deg)'; this.style.boxShadow='0 15px 50px rgba(255, 215, 0, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                 </div>
             </section>
+        </div>
+
+        <!-- Flirty Signup Section -->
+        <div style="position:fixed; bottom:195px; left:50%; transform:translateX(-50%); z-index:52; text-align:center; animation:slideUp 1s ease;">
+            <div style="background:linear-gradient(135deg,rgba(200,55,171,0.18),rgba(255,107,107,0.18),rgba(255,215,0,0.18)); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.25); border-radius:20px; padding:20px 36px; box-shadow:0 8px 40px rgba(0,0,0,0.35);">
+                <p style="font-size:0.7em; letter-spacing:4px; color:#ffd700; text-transform:uppercase; margin-bottom:4px; opacity:0.85;">Stay in the know</p>
+                <h3 style="font-family:Georgia,serif; font-size:1.5em; color:#fff; margin:0 0 4px; text-shadow:0 2px 10px rgba(200,55,171,0.6); letter-spacing:1px;">Join the Inner Circle</h3>
+                <p style="font-size:0.8em; color:rgba(255,255,255,0.75); margin-bottom:14px;">Get early access to tastings, events & exclusive invites.</p>
+                <form onsubmit="handleFlirtySignup(event)" style="display:flex; gap:10px; align-items:center; justify-content:center; flex-wrap:wrap;">
+                    <input type="email" id="flirtyEmail" placeholder="your@email.com" required style="padding:10px 18px; border:none; border-radius:30px; font-size:0.9em; background:rgba(255,255,255,0.92); color:#333; outline:none; width:220px; box-shadow:0 2px 10px rgba(0,0,0,0.2);">
+                    <button type="submit" style="padding:10px 24px; border:none; border-radius:30px; background:linear-gradient(135deg,#c837ab,#ff6b6b,#ffd700); color:#fff; font-weight:bold; font-size:0.9em; cursor:pointer; letter-spacing:1px; box-shadow:0 4px 15px rgba(200,55,171,0.5); transition:all 0.3s ease;" onmouseover="this.style.transform='scale(1.07)'; this.style.boxShadow='0 6px 22px rgba(200,55,171,0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(200,55,171,0.5)';">Sign Me Up ✦</button>
+                </form>
+                <p id="flirtyThanks" style="display:none; margin-top:10px; color:#ffd700; font-size:0.85em;">You're on the list. We'll be in touch soon.</p>
+            </div>
         </div>
 
         <footer>
@@ -370,6 +384,121 @@
                 <p>&copy; 2026 SIT Wine Company. All rights reserved.</p>
             </div>
         </footer>
+
+        <!-- Food Menu Modal -->
+        <div id="foodMenuModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:300; justify-content:center; align-items:center;">
+            <!-- Backdrop -->
+            <div id="scrollBackdrop" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.82); backdrop-filter:blur(6px);"></div>
+            <!-- Scroll -->
+            <div id="scrollContainer" style="position:relative; width:520px; max-width:95vw; z-index:1;">
+                <!-- Top rod -->
+                <div id="scrollRodTop" style="width:100%; height:32px; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.7); position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:0 8px;">
+                    <div id="scrollKnobTL" style="width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.25); box-shadow:inset 0 2px 4px rgba(0,0,0,0.4);"></div>
+                    <div id="scrollKnobTR" style="width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.25); box-shadow:inset 0 2px 4px rgba(0,0,0,0.4);"></div>
+                </div>
+                <!-- Scroll body -->
+                <div id="scrollBody" style="padding:32px 38px; border-left:8px solid; border-right:8px solid; box-shadow:inset 0 0 60px rgba(0,0,0,0.12), 0 0 40px rgba(0,0,0,0.5); overflow-y:auto; max-height:65vh;">
+                    <!-- Header -->
+                    <div style="text-align:center; margin-bottom:24px;">
+                        <img id="scrollThumbImg" src="" alt="" style="width:100%; height:140px; object-fit:cover; border-radius:12px; margin-bottom:14px; box-shadow:0 4px 20px rgba(0,0,0,0.5); display:block;">
+                        <p id="scrollSubtitle" style="font-size:0.7em; letter-spacing:5px; text-transform:uppercase; opacity:0.65; margin-bottom:4px;">✦ SIT at Graffiti Garden ✦</p>
+                        <h2 id="scrollTitle" style="font-family:Georgia,serif; font-size:2.2em; margin:6px 0; letter-spacing:3px; text-shadow:0 2px 12px rgba(0,0,0,0.5);">Wine Menu</h2>
+                        <div id="scrollDivider" style="width:100px; height:3px; margin:10px auto; border-radius:2px;"></div>
+                    </div>
+
+                    <div style="margin-bottom:24px;">
+                        <h3 class="scroll-section-head">🍷 Reds</h3>
+                        <div class="menu-item">
+                            <span class="menu-name">SIT Cabernet Sauvignon</span>
+                            <span class="menu-price">$16</span>
+                            <p class="menu-desc">Dark cherry, blackcurrant, cedar — full body, long finish</p>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-name">Graffiti Merlot</span>
+                            <span class="menu-price">$14</span>
+                            <p class="menu-desc">Plum, mocha, soft tannins — smooth & approachable</p>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-name">Garden Pinot Noir</span>
+                            <span class="menu-price">$15</span>
+                            <p class="menu-desc">Red berry, earthy undertones, silky texture</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:24px;">
+                        <h3 class="scroll-section-head">🥂 Whites & Rosé</h3>
+                        <div class="menu-item">
+                            <span class="menu-name">SIT Chardonnay</span>
+                            <span class="menu-price">$13</span>
+                            <p class="menu-desc">Crisp apple, vanilla oak, buttery finish</p>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-name">Tacoma Sauvignon Blanc</span>
+                            <span class="menu-price">$12</span>
+                            <p class="menu-desc">Citrus zest, fresh herbs, mineral dry finish</p>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-name">Graffiti Rosé</span>
+                            <span class="menu-price">$13</span>
+                            <p class="menu-desc">Strawberry, watermelon, floral — vibrant & refreshing</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:24px;">
+                        <h3 class="scroll-section-head">✨ Sparkling</h3>
+                        <div class="menu-item">
+                            <span class="menu-name">SIT Brut Champagne</span>
+                            <span class="menu-price">$18</span>
+                            <p class="menu-desc">Green apple, brioche, fine persistent bubbles</p>
+                        </div>
+                        <div class="menu-item">
+                            <span class="menu-name">Prosecco DOC</span>
+                            <span class="menu-price">$12</span>
+                            <p class="menu-desc">Pear, peach blossom, light & celebratory</p>
+                        </div>
+                    </div>
+
+                    <div style="text-align:center; margin-top:16px;">
+                        <button id="scrollCloseBtn" onclick="closeFoodMenu()" style="color:#fff; border:none; padding:13px 48px; border-radius:30px; cursor:pointer; font-family:Georgia,serif; font-size:1em; letter-spacing:3px; transition:all 0.3s ease; box-shadow:0 4px 20px rgba(0,0,0,0.3);" onmouseover="this.style.transform='scale(1.07)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.3)';">✕ Close Scroll</button>
+                    </div>
+                </div>
+                <!-- Bottom rod -->
+                <div id="scrollRodBottom" style="width:100%; height:32px; border-radius:16px; box-shadow:0 -6px 20px rgba(0,0,0,0.7); position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:0 8px;">
+                    <div id="scrollKnobBL" style="width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.25); box-shadow:inset 0 2px 4px rgba(0,0,0,0.4);"></div>
+                    <div id="scrollKnobBR" style="width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.25); box-shadow:inset 0 2px 4px rgba(0,0,0,0.4);"></div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @keyframes scrollUnroll {
+                from { transform: scaleY(0.04) translateY(-10px); opacity:0; }
+                to   { transform: scaleY(1) translateY(0);         opacity:1; }
+            }
+            #scrollContainer { animation: scrollUnroll 0.55s cubic-bezier(0.22,1,0.36,1) forwards; transform-origin: top center; }
+            .scroll-section-head {
+                font-family: Georgia, serif;
+                font-size: 0.9em;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                margin-bottom: 14px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid;
+            }
+            .menu-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                margin-bottom: 14px;
+                padding-bottom: 12px;
+                border-bottom: 1px dashed;
+            }
+            .menu-item:last-child { border-bottom: none; }
+            .menu-name { font-family: Georgia, serif; font-weight: bold; font-size: 1em; }
+            .menu-price { font-weight: bold; font-size: 1em; }
+            .menu-desc { width: 100%; font-size: 0.8em; margin-top: 3px; opacity: 0.75; }
+        </style>
 
         <!-- Booking Modal -->
         <div id="bookingModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 200; justify-content: center; align-items: center;">
@@ -424,6 +553,64 @@
                     closeBookingForm();
                 }
             });
+
+            const scrollThemes = {
+                wine:   { img: 'GG_menu.png',               overlay: 'rgba(80,5,15,0.58)',    border: '#B5162A', paper: '#fff', accent: '#ffd0d8', bg: 'rgba(80,0,20,0.88)',  title: '#fff', sub: '#ffd0d8', divider: 'linear-gradient(90deg,transparent,#ff8095,transparent)', btn: 'linear-gradient(135deg,#6B0F1A,#B5162A)', dash: 'rgba(255,200,210,0.5)' },
+                purple: { img: 'GG_purpmenu.png',           overlay: 'rgba(40,0,70,0.58)',    border: '#c837ab', paper: '#fff', accent: '#e8b0ff', bg: 'rgba(40,0,70,0.88)',  title: '#fff', sub: '#e8b0ff', divider: 'linear-gradient(90deg,transparent,#c837ab,transparent)', btn: 'linear-gradient(135deg,#4a0070,#c837ab)', dash: 'rgba(220,160,255,0.5)' },
+                coral:  { img: 'Palace_Sit.png',            overlay: 'rgba(80,20,0,0.58)',    border: '#ff6b6b', paper: '#fff', accent: '#ffc8a8', bg: 'rgba(80,20,0,0.88)',  title: '#fff', sub: '#ffc8a8', divider: 'linear-gradient(90deg,transparent,#ff6b6b,transparent)', btn: 'linear-gradient(135deg,#8B2500,#ff6b6b)', dash: 'rgba(255,180,140,0.5)' },
+                teal:   { img: 'GraffitiGarden_scroll2.png',overlay: 'rgba(0,40,33,0.58)',    border: '#00b894', paper: '#fff', accent: '#a0ffd8', bg: 'rgba(0,50,40,0.88)',  title: '#fff', sub: '#a0ffd8', divider: 'linear-gradient(90deg,transparent,#00b894,transparent)', btn: 'linear-gradient(135deg,#003d33,#00b894)', dash: 'rgba(100,220,180,0.5)' },
+                gold:   { img: 'GraffitiGarden_sit1.png',   overlay: 'rgba(50,28,0,0.58)',    border: '#ffd700', paper: '#fff', accent: '#ffe97a', bg: 'rgba(50,30,0,0.88)',  title: '#fff', sub: '#ffe97a', divider: 'linear-gradient(90deg,transparent,#ffd700,transparent)', btn: 'linear-gradient(135deg,#5c3800,#ffd700)', dash: 'rgba(255,220,80,0.5)' },
+            };
+
+            function openFoodMenu(theme) {
+                const t = scrollThemes[theme] || scrollThemes.wine;
+                // Backdrop
+                document.getElementById('scrollBackdrop').style.background = t.bg;
+                // Rods — image tinted with border color
+                const rodBg = `linear-gradient(${t.overlay}, ${t.overlay}), url('${t.img}') center/cover no-repeat`;
+                document.getElementById('scrollRodTop').style.background = rodBg;
+                document.getElementById('scrollRodBottom').style.background = rodBg;
+                // Body — image behind color wash
+                const body = document.getElementById('scrollBody');
+                body.style.background = `linear-gradient(${t.overlay}, ${t.overlay}), url('${t.img}') center/cover no-repeat`;
+                body.style.borderLeftColor = t.border;
+                body.style.borderRightColor = t.border;
+                // Thumbnail inside scroll
+                document.getElementById('scrollThumbImg').src = t.img;
+                // Text
+                document.getElementById('scrollTitle').style.color = t.title;
+                document.getElementById('scrollSubtitle').style.color = t.sub;
+                document.getElementById('scrollDivider').style.background = t.divider;
+                // Section heads
+                document.querySelectorAll('.scroll-section-head').forEach(el => { el.style.color = t.accent; el.style.borderBottomColor = t.border; });
+                // Item names & prices
+                document.querySelectorAll('.menu-name').forEach(el => el.style.color = t.title);
+                document.querySelectorAll('.menu-price').forEach(el => el.style.color = t.accent);
+                document.querySelectorAll('.menu-desc').forEach(el => { el.style.color = t.paper; el.style.opacity = '0.85'; });
+                document.querySelectorAll('.menu-item').forEach(el => el.style.borderBottomColor = t.dash);
+                // Close btn
+                document.getElementById('scrollCloseBtn').style.background = t.btn;
+                // Show & re-trigger animation
+                const modal = document.getElementById('foodMenuModal');
+                modal.style.display = 'flex';
+                const scroll = document.getElementById('scrollContainer');
+                scroll.style.animation = 'none';
+                scroll.offsetHeight;
+                scroll.style.animation = 'scrollUnroll 0.55s cubic-bezier(0.22,1,0.36,1) forwards';
+            }
+
+            function closeFoodMenu() {
+                document.getElementById('foodMenuModal').style.display = 'none';
+            }
+
+            document.getElementById('scrollBackdrop').addEventListener('click', closeFoodMenu);
+
+            function handleFlirtySignup(e) {
+                e.preventDefault();
+                document.getElementById('flirtyEmail').style.display = 'none';
+                e.submitter.style.display = 'none';
+                document.getElementById('flirtyThanks').style.display = 'block';
+            }
         </script>
     </div>
 </body>
