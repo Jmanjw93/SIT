@@ -399,6 +399,7 @@
             <button class="nav-close" onclick="toggleMobileNav()">✕</button>
             <a href="#" onclick="toggleMobileNav()">Our Wines</a>
             <a href="#" onclick="openBookingForm(); toggleMobileNav()">Book a Table</a>
+            <a href="#" onclick="openSongModal(); toggleMobileNav()">🎵 Request a Song</a>
             <a href="videos.html" onclick="toggleMobileNav()">Videos</a>
             <a href="#" onclick="toggleMobileNav()">Tastings</a>
             <a href="#" onclick="toggleMobileNav()">Visit Us</a>
@@ -463,6 +464,54 @@
                     <button type="submit" style="padding:10px 24px; border:none; border-radius:30px; background:linear-gradient(135deg,#c837ab,#ff6b6b,#ffd700); color:#fff; font-weight:bold; font-size:0.9em; cursor:pointer; letter-spacing:1px; box-shadow:0 4px 15px rgba(200,55,171,0.5); transition:all 0.3s ease;" onmouseover="this.style.transform='scale(1.07)'; this.style.boxShadow='0 6px 22px rgba(200,55,171,0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(200,55,171,0.5)';">Sign Me Up ✦</button>
                 </form>
                 <p id="flirtyThanks" style="display:none; margin-top:10px; color:#ffd700; font-size:0.85em;">You're on the list. We'll be in touch soon.</p>
+            </div>
+        </div>
+
+        <!-- Floating Music Button (desktop) -->
+        <button id="musicFloatBtn" onclick="openSongModal()" style="position:fixed; bottom:22px; right:22px; z-index:120; width:58px; height:58px; border-radius:50%; border:none; background:linear-gradient(135deg,#1DB954,#191414); color:#fff; font-size:1.6em; cursor:pointer; box-shadow:0 4px 20px rgba(29,185,84,0.5); transition:all 0.3s ease;" onmouseover="this.style.transform='scale(1.15)'; this.style.boxShadow='0 6px 28px rgba(29,185,84,0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(29,185,84,0.5)';" title="Request a Song">🎵</button>
+
+        <!-- Song Request Modal -->
+        <div id="songModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:250; justify-content:center; align-items:center;">
+            <div onclick="closeSongModal()" style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px);"></div>
+            <div style="position:relative; width:480px; max-width:94vw; background:linear-gradient(135deg,rgba(10,10,20,0.97),rgba(25,20,10,0.97)); border:1px solid rgba(255,255,255,0.15); border-radius:24px; padding:36px 32px; box-shadow:0 20px 60px rgba(0,0,0,0.6); animation:slideUp 0.3s ease;">
+                <!-- Header -->
+                <div style="text-align:center; margin-bottom:24px;">
+                    <div style="font-size:2.4em; margin-bottom:8px;">🎶</div>
+                    <p style="font-size:0.65em; letter-spacing:5px; color:#1DB954; text-transform:uppercase; margin-bottom:4px;">Set the Vibe</p>
+                    <h2 style="font-family:Georgia,serif; color:#fff; font-size:1.8em; margin:0 0 6px; text-shadow:0 2px 12px rgba(29,185,84,0.4);">Add to the Playlist</h2>
+                    <p style="font-size:0.8em; color:rgba(255,255,255,0.6);">Drop a song — we might just play it tonight</p>
+                </div>
+
+                <!-- Playlist Links -->
+                <div style="display:flex; gap:12px; justify-content:center; margin-bottom:24px; flex-wrap:wrap;">
+                    <a id="spotifyLink" href="#" target="_blank" style="display:flex; align-items:center; gap:8px; padding:10px 20px; border-radius:30px; background:#1DB954; color:#fff; text-decoration:none; font-weight:600; font-size:0.85em; letter-spacing:1px; box-shadow:0 4px 16px rgba(29,185,84,0.4); transition:all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        Follow on Spotify
+                    </a>
+                    <a id="appleLink" href="#" target="_blank" style="display:flex; align-items:center; gap:8px; padding:10px 20px; border-radius:30px; background:linear-gradient(135deg,#fc3c44,#ff6b6b); color:#fff; text-decoration:none; font-weight:600; font-size:0.85em; letter-spacing:1px; box-shadow:0 4px 16px rgba(252,60,68,0.4); transition:all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M23.997 6.124c0-.738-.065-1.47-.24-2.19-.317-1.31-1.062-2.31-2.18-3.043C21.003.517 20.373.285 19.7.164c-.517-.093-1.038-.135-1.564-.15-.04-.003-.083-.01-.124-.013H5.988c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208c-.192.448-.292.925-.363 1.408C.05 5.35.012 6.09.01 6.834v10.265c.005.756.05 1.51.232 2.25.29 1.197.944 2.178 1.922 2.944.829.65 1.778.95 2.795 1.082.67.086 1.34.113 2.01.115h9.964c.705-.005 1.41-.044 2.1-.158 1.083-.182 2.04-.62 2.832-1.347.63-.574 1.098-1.272 1.376-2.075.198-.576.293-1.17.342-1.773.03-.346.036-.694.038-1.04V6.124zm-8.124 9.76c-.057.136-.127.269-.198.4a4.198 4.198 0 01-.377.565c-.223.27-.48.487-.78.643-.312.163-.645.24-.992.24-.358 0-.7-.1-1.016-.29l-.054-.034c-.258-.158-.523-.3-.8-.41-.283-.112-.577-.168-.876-.168-.297 0-.588.056-.868.165-.277.108-.54.25-.79.41l-.056.034c-.315.19-.655.29-1.013.29-.35 0-.682-.077-.994-.242-.302-.156-.56-.374-.783-.645-.143-.17-.27-.353-.38-.545-.072-.133-.144-.267-.2-.405-.3-.736-.302-1.556 0-2.293.057-.137.127-.27.198-.4.115-.215.26-.41.43-.583.28-.28.61-.5.978-.63.365-.128.74-.165 1.117-.11.37.054.724.19 1.04.39l.055.035c.243.152.495.284.757.39.258.104.524.157.794.157.27 0 .538-.053.798-.157.264-.106.518-.238.762-.39l.055-.035c.315-.2.668-.336 1.04-.39.376-.055.752-.018 1.117.11.37.13.698.35.977.63.17.173.317.368.43.583.07.13.14.263.2.4.3.736.3 1.555 0 2.29zm-1.44-7.16c-.04.36-.13.71-.25 1.044-.282.78-.788 1.43-1.47 1.857-.34.213-.71.358-1.103.42a3.62 3.62 0 01-.582.044c-.247 0-.49-.03-.73-.086-.24-.055-.47-.14-.69-.254-.22-.115-.425-.26-.61-.43-.185-.17-.35-.36-.492-.57-.143-.21-.26-.44-.344-.68-.084-.24-.138-.49-.158-.74-.02-.25-.008-.503.034-.75.084-.5.287-.96.59-1.345.303-.385.698-.686 1.154-.87.226-.09.46-.147.7-.172.24-.025.48-.02.717.016.47.073.91.265 1.283.558.373.293.664.682.845 1.123.09.22.146.455.164.696.018.24.003.48-.04.72l-.018.22z"/></svg>
+                        Follow on Apple Music
+                    </a>
+                </div>
+
+                <!-- Divider -->
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                    <div style="flex:1; height:1px; background:rgba(255,255,255,0.15);"></div>
+                    <span style="color:rgba(255,255,255,0.4); font-size:0.75em; letter-spacing:2px;">REQUEST A SONG</span>
+                    <div style="flex:1; height:1px; background:rgba(255,255,255,0.15);"></div>
+                </div>
+
+                <!-- Request Form -->
+                <form id="songForm" onsubmit="handleSongRequest(event)" style="display:flex; flex-direction:column; gap:12px;">
+                    <input type="text" id="songName" placeholder="Song name" required style="padding:12px 18px; border:1px solid rgba(255,255,255,0.2); border-radius:30px; font-size:0.9em; background:rgba(255,255,255,0.08); color:#fff; outline:none; font-family:'Poppins',sans-serif;">
+                    <input type="text" id="artistName" placeholder="Artist" required style="padding:12px 18px; border:1px solid rgba(255,255,255,0.2); border-radius:30px; font-size:0.9em; background:rgba(255,255,255,0.08); color:#fff; outline:none; font-family:'Poppins',sans-serif;">
+                    <input type="text" id="requesterName" placeholder="Your name (optional)" style="padding:12px 18px; border:1px solid rgba(255,255,255,0.2); border-radius:30px; font-size:0.9em; background:rgba(255,255,255,0.08); color:#fff; outline:none; font-family:'Poppins',sans-serif;">
+                    <div style="display:flex; gap:10px; margin-top:4px;">
+                        <button type="submit" style="flex:1; padding:13px; border:none; border-radius:30px; background:linear-gradient(135deg,#1DB954,#191414); color:#fff; font-weight:700; font-size:0.95em; cursor:pointer; letter-spacing:1px; box-shadow:0 4px 16px rgba(29,185,84,0.4); transition:all 0.3s ease;" onmouseover="this.style.transform='scale(1.04)';" onmouseout="this.style.transform='scale(1)';">Submit Request 🎶</button>
+                        <button type="button" onclick="closeSongModal()" style="padding:13px 20px; border:1px solid rgba(255,255,255,0.2); border-radius:30px; background:transparent; color:rgba(255,255,255,0.6); font-size:0.9em; cursor:pointer; transition:all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.background='transparent';">Cancel</button>
+                    </div>
+                </form>
+                <p id="songThanks" style="display:none; text-align:center; margin-top:14px; color:#1DB954; font-size:0.9em; font-weight:600;">🎶 Request sent! We'll try to spin it tonight.</p>
             </div>
         </div>
 
@@ -722,6 +771,32 @@
                 document.getElementById('flirtyThanks').style.display = 'block';
             }
 
+            // ── Song Request ──
+            // TODO: Replace these with your actual playlist URLs
+            const SPOTIFY_PLAYLIST = 'https://open.spotify.com/';   // paste your Spotify playlist link here
+            const APPLE_PLAYLIST   = 'https://music.apple.com/';     // paste your Apple Music playlist link here
+            document.getElementById('spotifyLink').href = SPOTIFY_PLAYLIST;
+            document.getElementById('appleLink').href   = APPLE_PLAYLIST;
+
+            function openSongModal() {
+                document.getElementById('songModal').style.display = 'flex';
+                document.getElementById('songForm').style.display = 'flex';
+                document.getElementById('songThanks').style.display = 'none';
+            }
+            function closeSongModal() {
+                document.getElementById('songModal').style.display = 'none';
+            }
+            function handleSongRequest(e) {
+                e.preventDefault();
+                const song   = document.getElementById('songName').value;
+                const artist = document.getElementById('artistName').value;
+                const name   = document.getElementById('requesterName').value || 'A guest';
+                const mailto = `mailto:info@sitwineco.com?subject=Song Request: ${song} by ${artist}&body=Song: ${song}%0DArtist: ${artist}%0DRequested by: ${name}`;
+                window.location.href = mailto;
+                document.getElementById('songForm').style.display = 'none';
+                document.getElementById('songThanks').style.display = 'block';
+            }
+
             // ── Hamburger Nav ──
             function toggleMobileNav() {
                 const nav = document.getElementById('mobileNav');
@@ -740,7 +815,10 @@
                 const footer     = document.querySelector('footer');
                 const body       = document.body;
 
+                const musicBtn = document.getElementById('musicFloatBtn');
+
                 if (mobile) {
+                    if (musicBtn) musicBtn.style.display = 'none';
                     // Side panels → normal flow
                     [leftPanel, rightPanel].forEach(el => {
                         el.style.position  = 'relative';
@@ -779,6 +857,7 @@
                     // Body padding
                     body.style.paddingBottom = '0';
                 } else {
+                    if (musicBtn) musicBtn.style.display = 'block';
                     // Desktop — restore original inline styles
                     leftPanel.style.position  = 'fixed';
                     leftPanel.style.left      = '20px';
