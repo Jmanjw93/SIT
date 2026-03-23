@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graffit Gallery</title>
+    <title>SIT at Graffiti Garden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -54,13 +56,70 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', 'Arial', sans-serif;
             background: url('Graffit_griffit.jpg') center/cover no-repeat fixed;
             min-height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
             padding-bottom: 310px;
+        }
+
+        /* ── Hamburger Nav ── */
+        .mobile-nav { display: none; }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 200;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            background: rgba(20,0,30,0.97);
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 150;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            animation: fadeIn 0.2s ease;
+        }
+        .mobile-nav-menu.open { display: flex; }
+        .mobile-nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.6em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 30px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .mobile-nav-menu a:hover { background: rgba(200,55,171,0.3); }
+        .mobile-nav-menu .nav-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: none; border: none;
+            color: #fff; font-size: 2em; cursor: pointer;
         }
 
         body::before {
@@ -291,14 +350,60 @@
                 max-height: 50vh;
             }
         }
+
+        /* ── Mobile Layout (kjfun.com style) ── */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+
+            header {
+                padding: 18px 60px 18px 20px;
+                position: relative;
+            }
+            header h1 { font-size: 1.4em; letter-spacing: 0; }
+            header p  { font-size: 0.85em; }
+
+            /* Mobile image grid — 2 cols like kjfun */
+            .panels-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                width: 100%;
+                padding: 0;
+            }
+            .panels-wrapper .side-panel {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            header h1 { font-size: 1.15em; }
+            .panels-wrapper { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <header style="position:relative;">
             <h1>SIT at Graffiti Garden</h1>
             <p>Wine Experience & Art Gallery</p>
+            <!-- Hamburger (mobile only) -->
+            <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+                <span></span><span></span><span></span>
+            </div>
         </header>
+
+        <!-- Mobile Nav Overlay -->
+        <div class="mobile-nav-menu" id="mobileNav">
+            <button class="nav-close" onclick="toggleMobileNav()">✕</button>
+            <a href="#" onclick="toggleMobileNav()">Our Wines</a>
+            <a href="#" onclick="openBookingForm(); toggleMobileNav()">Book a Table</a>
+            <a href="videos.html" onclick="toggleMobileNav()">Videos</a>
+            <a href="#" onclick="toggleMobileNav()">Tastings</a>
+            <a href="#" onclick="toggleMobileNav()">Visit Us</a>
+            <a href="mailto:info@sitwineco.com" onclick="toggleMobileNav()">Contact</a>
+        </div>
 
         <div class="content">
             <div class="image-section">
@@ -306,10 +411,13 @@
             </div>
 
             <!-- Book a Table Button Over Background -->
-            <button onclick="openBookingForm()" style="position: fixed; top: 64%; left: 50%; transform: translate(-50%, -50%); z-index: 55; background: linear-gradient(135deg, #ff6b6b, #ffd700); color: #333; border: none; padding: 30px 100px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 2.2em; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);" onmouseover="this.style.transform='translate(-50%, -50%) scale(1.1)'; this.style.boxShadow='0 12px 30px rgba(255, 107, 107, 0.7)';" onmouseout="this.style.transform='translate(-50%, -50%) scale(1)'; this.style.boxShadow='0 8px 20px rgba(255, 107, 107, 0.5)';">Book a Table</button>
+            <button class="book-btn-center" onclick="openBookingForm()" style="position: fixed; top: 64%; left: 50%; transform: translate(-50%, -50%); z-index: 55; background: linear-gradient(135deg, #ff6b6b, #ffd700); color: #333; border: none; padding: 30px 100px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 2.2em; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);" onmouseover="this.style.transform='translate(-50%, -50%) scale(1.1)'; this.style.boxShadow='0 12px 30px rgba(255, 107, 107, 0.7)';" onmouseout="this.style.transform='translate(-50%, -50%) scale(1)'; this.style.boxShadow='0 8px 20px rgba(255, 107, 107, 0.5)';">Book a Table</button>
+
+            <!-- Mobile wrapper starts -->
+            <div class="panels-wrapper">
 
             <!-- Left Side Photos -->
-            <section style="position: fixed; left: 20px; top: 120px; width: 350px; max-height: 70vh; overflow-y: auto; z-index: 50;">
+            <section class="side-panel left-panel" style="position: fixed; left: 20px; top: 120px; width: 350px; max-height: 70vh; overflow-y: auto; z-index: 50;">
                 <div style="margin-bottom: 20px; animation: slideUp 0.8s ease;">
                     <img src="GG_menu.png" alt="SIT Wine Menu" onclick="openFoodMenu('wine')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(-2deg)'; this.style.boxShadow='0 15px 50px rgba(200, 55, 171, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                     <div onclick="openBookingForm()" style="position: absolute; width: 100%; height: 60px; bottom: 40px; left: 20px; cursor: pointer; z-index: 51;"></div>
@@ -326,7 +434,7 @@
             </section>
 
             <!-- Right Side Photos -->
-            <section style="position: fixed; right: 20px; top: 120px; width: 350px; max-height: 70vh; overflow-y: auto; z-index: 50;">
+            <section class="side-panel right-panel" style="position: fixed; right: 20px; top: 120px; width: 350px; max-height: 70vh; overflow-y: auto; z-index: 50;">
                 <div style="margin-bottom: 20px; animation: slideUp 1.1s ease; position: relative;">
                     <img src="Palace_Sit.png" alt="Palace at SIT" onclick="openFoodMenu('coral')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05) rotate(2deg)'; this.style.boxShadow='0 15px 50px rgba(255, 107, 107, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                     <button onclick="openBookingForm()" style="position: absolute; bottom: 45px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #ff6b6b, #ffd700); color: #333; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s ease; z-index: 51;" onmouseover="this.style.transform='translateX(-50%) scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(255, 107, 107, 0.5)';" onmouseout="this.style.transform='translateX(-50%) scale(1)'; this.style.boxShadow='none';">Book a Table</button>
@@ -340,10 +448,12 @@
                     <img src="GraffitiGarden_sit1.png" alt="SIT Gallery" onclick="openFoodMenu('gold')" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.08) rotate(3deg)'; this.style.boxShadow='0 15px 50px rgba(255, 215, 0, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.3)';">
                 </div>
             </section>
+
+            </div><!-- end panels-wrapper -->
         </div>
 
         <!-- Flirty Signup Section -->
-        <div style="position:fixed; bottom:195px; left:50%; transform:translateX(-50%); z-index:52; text-align:center; animation:slideUp 1s ease;">
+        <div class="signup-section" style="position:fixed; bottom:195px; left:50%; transform:translateX(-50%); z-index:52; text-align:center; animation:slideUp 1s ease;">
             <div style="background:linear-gradient(135deg,rgba(200,55,171,0.18),rgba(255,107,107,0.18),rgba(255,215,0,0.18)); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.25); border-radius:20px; padding:20px 36px; box-shadow:0 8px 40px rgba(0,0,0,0.35);">
                 <p style="font-size:0.7em; letter-spacing:4px; color:#ffd700; text-transform:uppercase; margin-bottom:4px; opacity:0.85;">Stay in the know</p>
                 <h3 style="font-family:Georgia,serif; font-size:1.5em; color:#fff; margin:0 0 4px; text-shadow:0 2px 10px rgba(200,55,171,0.6); letter-spacing:1px;">Join the Inner Circle</h3>
@@ -611,6 +721,107 @@
                 e.submitter.style.display = 'none';
                 document.getElementById('flirtyThanks').style.display = 'block';
             }
+
+            // ── Hamburger Nav ──
+            function toggleMobileNav() {
+                const nav = document.getElementById('mobileNav');
+                const burger = document.getElementById('hamburger');
+                nav.classList.toggle('open');
+                burger.classList.toggle('open');
+            }
+
+            // ── Responsive Layout ──
+            function applyResponsiveLayout() {
+                const mobile = window.innerWidth <= 768;
+                const leftPanel  = document.querySelector('.left-panel');
+                const rightPanel = document.querySelector('.right-panel');
+                const bookBtn    = document.querySelector('.book-btn-center');
+                const signup     = document.querySelector('.signup-section');
+                const footer     = document.querySelector('footer');
+                const body       = document.body;
+
+                if (mobile) {
+                    // Side panels → normal flow
+                    [leftPanel, rightPanel].forEach(el => {
+                        el.style.position  = 'relative';
+                        el.style.left      = 'auto';
+                        el.style.right     = 'auto';
+                        el.style.top       = 'auto';
+                        el.style.width     = '100%';
+                        el.style.maxHeight = 'none';
+                        el.style.overflowY = 'visible';
+                        el.style.zIndex    = '1';
+                    });
+                    // Book button → normal flow, centered
+                    bookBtn.style.position  = 'relative';
+                    bookBtn.style.top       = 'auto';
+                    bookBtn.style.left      = 'auto';
+                    bookBtn.style.transform = 'none';
+                    bookBtn.style.fontSize  = '1.3em';
+                    bookBtn.style.padding   = '16px 30px';
+                    bookBtn.style.width     = '90%';
+                    bookBtn.style.display   = 'block';
+                    bookBtn.style.margin    = '16px auto';
+                    bookBtn.style.zIndex    = '1';
+                    // Disable hover JS on touch devices
+                    bookBtn.onmouseover = null;
+                    bookBtn.onmouseout  = null;
+                    // Signup → normal flow
+                    signup.style.position  = 'relative';
+                    signup.style.bottom    = 'auto';
+                    signup.style.left      = 'auto';
+                    signup.style.transform = 'none';
+                    signup.style.width     = '100%';
+                    signup.style.zIndex    = '1';
+                    // Footer → normal flow
+                    footer.style.position  = 'relative';
+                    footer.style.bottom    = 'auto';
+                    // Body padding
+                    body.style.paddingBottom = '0';
+                } else {
+                    // Desktop — restore original inline styles
+                    leftPanel.style.position  = 'fixed';
+                    leftPanel.style.left      = '20px';
+                    leftPanel.style.top       = '120px';
+                    leftPanel.style.width     = '350px';
+                    leftPanel.style.maxHeight = '70vh';
+                    leftPanel.style.overflowY = 'auto';
+                    leftPanel.style.zIndex    = '50';
+
+                    rightPanel.style.position  = 'fixed';
+                    rightPanel.style.right     = '20px';
+                    rightPanel.style.top       = '120px';
+                    rightPanel.style.width     = '350px';
+                    rightPanel.style.maxHeight = '70vh';
+                    rightPanel.style.overflowY = 'auto';
+                    rightPanel.style.zIndex    = '50';
+
+                    bookBtn.style.position  = 'fixed';
+                    bookBtn.style.top       = '64%';
+                    bookBtn.style.left      = '50%';
+                    bookBtn.style.transform = 'translate(-50%, -50%)';
+                    bookBtn.style.fontSize  = '2.2em';
+                    bookBtn.style.padding   = '30px 100px';
+                    bookBtn.style.width     = 'auto';
+                    bookBtn.style.display   = 'inline-block';
+                    bookBtn.style.margin    = '0';
+                    bookBtn.style.zIndex    = '55';
+
+                    signup.style.position  = 'fixed';
+                    signup.style.bottom    = '195px';
+                    signup.style.left      = '50%';
+                    signup.style.transform = 'translateX(-50%)';
+                    signup.style.width     = 'auto';
+                    signup.style.zIndex    = '52';
+
+                    footer.style.position = 'fixed';
+                    footer.style.bottom   = '0';
+                    body.style.paddingBottom = '310px';
+                }
+            }
+
+            applyResponsiveLayout();
+            window.addEventListener('resize', applyResponsiveLayout);
         </script>
     </div>
 </body>
