@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inner Circle Membership — SIT at Graffiti Garden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('Graffit_griffit.jpg') center/cover no-repeat fixed;
+            min-height: 100vh;
+            color: #fff;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.72);
+            z-index: 0;
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85em;
+            margin-bottom: 40px;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: #fff; }
+
+        /* ── Hero ── */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .hero-label {
+            font-size: 0.7em;
+            letter-spacing: 5px;
+            color: #ffd700;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(2em, 6vw, 3.4em);
+            font-weight: normal;
+            margin-bottom: 14px;
+            text-shadow: 0 2px 20px rgba(200,55,171,0.4);
+        }
+        .hero p {
+            font-size: 1em;
+            color: rgba(255,255,255,0.7);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── Cards ── */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 24px;
+            padding: 40px 32px;
+            backdrop-filter: blur(16px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        /* Tier 1 — Inner Circle */
+        .card.tier1 {
+            border-color: rgba(200,55,171,0.4);
+        }
+        .card.tier1::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c837ab, #ff6b6b);
+        }
+
+        /* Tier 2 — The Vault (featured) */
+        .card.tier2 {
+            border-color: rgba(255,215,0,0.5);
+            background: rgba(255,215,0,0.06);
+        }
+        .card.tier2::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b, #c837ab);
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            color: #222;
+            font-size: 0.65em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .tier-label {
+            font-size: 0.7em;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 8px;
+        }
+        .tier-name {
+            font-family: Georgia, serif;
+            font-size: 1.9em;
+            font-weight: normal;
+            margin-bottom: 6px;
+        }
+        .tier1 .tier-name { color: #e8b0ff; }
+        .tier2 .tier-name { color: #ffd700; }
+
+        .price {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin: 16px 0 4px;
+            line-height: 1;
+        }
+        .price span {
+            font-size: 0.4em;
+            font-weight: 400;
+            opacity: 0.6;
+            vertical-align: middle;
+        }
+        .price-note {
+            font-size: 0.78em;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 28px;
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(255,255,255,0.12);
+            margin-bottom: 24px;
+        }
+
+        .perks {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            margin-bottom: 32px;
+        }
+        .perks li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.5;
+        }
+        .perk-icon {
+            font-size: 1.1em;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .join-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .tier1 .join-btn {
+            background: linear-gradient(135deg, #4a0070, #c837ab);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(200,55,171,0.4);
+        }
+        .tier1 .join-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 30px rgba(200,55,171,0.6);
+        }
+        .tier2 .join-btn {
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            color: #222;
+            box-shadow: 0 4px 20px rgba(255,215,0,0.4);
+        }
+        .tier2 .join-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 30px rgba(255,215,0,0.6);
+        }
+
+        /* ── FAQ / Note ── */
+        .note {
+            text-align: center;
+            margin-top: 48px;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.82em;
+            line-height: 1.8;
+        }
+        .note a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+
+        /* ── Mobile ── */
+        @media (max-width: 640px) {
+            .cards { grid-template-columns: 1fr; }
+            .card { padding: 32px 24px; }
+            .hero h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <a href="index.html" class="back-link">← Back to SIT</a>
+
+    <div class="hero">
+        <p class="hero-label">✦ Membership ✦</p>
+        <h1>The Inner Circle</h1>
+        <p>Two ways to belong. Both built for those who want more than just a night out.</p>
+    </div>
+
+    <div class="cards">
+
+        <!-- Tier 1: Inner Circle -->
+        <div class="card tier1">
+            <p class="tier-label">Tier 1</p>
+            <h2 class="tier-name">Inner Circle</h2>
+            <div class="price">$15 <span>/ month</span></div>
+            <p class="price-note">Cancel anytime</p>
+            <div class="divider"></div>
+            <ul class="perks">
+                <li><span class="perk-icon">🚪</span> Access to the Secret Lounge at Graffiti Garden</li>
+                <li><span class="perk-icon">🥂</span> Priority reservations — skip the wait list</li>
+                <li><span class="perk-icon">🎟️</span> Early access to exclusive tastings & events</li>
+                <li><span class="perk-icon">📩</span> Members-only newsletter with event previews</li>
+                <li><span class="perk-icon">💜</span> Inner Circle badge on your member profile</li>
+            </ul>
+            <!-- Replace href with your Stripe Payment Link for $15/mo -->
+            <a href="STRIPE_INNER_CIRCLE_LINK" class="join-btn" target="_blank">Join Inner Circle →</a>
+        </div>
+
+        <!-- Tier 2: The Vault -->
+        <div class="card tier2">
+            <div class="badge">⭐ Most Exclusive</div>
+            <p class="tier-label">Tier 2</p>
+            <h2 class="tier-name">The Vault</h2>
+            <div class="price">$30 <span>/ month</span></div>
+            <p class="price-note">Everything in Inner Circle, plus:</p>
+            <div class="divider"></div>
+            <ul class="perks">
+                <li><span class="perk-icon">🚪</span> Access to the Secret Lounge at Graffiti Garden</li>
+                <li><span class="perk-icon">🍷</span> Complimentary premium wine glasses — yours to keep</li>
+                <li><span class="perk-icon">⭐</span> Private celebrity meetup events (members only)</li>
+                <li><span class="perk-icon">🥂</span> VIP table priority — reserved seating guaranteed</li>
+                <li><span class="perk-icon">🎟️</span> All tastings & events included at no extra charge</li>
+                <li><span class="perk-icon">🎁</span> Monthly surprise gift from the SIT team</li>
+                <li><span class="perk-icon">🖤</span> Vault black member card</li>
+            </ul>
+            <!-- Replace href with your Stripe Payment Link for $30/mo -->
+            <a href="STRIPE_VAULT_LINK" class="join-btn" target="_blank">Join The Vault →</a>
+        </div>
+
+    </div>
+
+    <p class="note">
+        Billed monthly. Cancel anytime — no questions asked.<br>
+        Questions? Email <a href="mailto:info@sitwineco.com">info@sitwineco.com</a><br><br>
+        Powered by <strong>Stripe</strong> — secure, encrypted payments.
+    </p>
+
+</div>
+</body>
+</html>
